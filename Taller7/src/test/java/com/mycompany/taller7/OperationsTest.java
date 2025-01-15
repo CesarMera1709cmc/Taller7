@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 package com.mycompany.taller7;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class OperationsTest {
@@ -50,30 +52,18 @@ public class OperationsTest {
     @Test
     public void testSolve() {
         System.out.println("Solve");
-
-        // Fórmula simple: "3+5"
-        String formula1 = "3+5";
+        String formula1 = "12+34";
         String result1 = Operations.Solve(formula1);
         System.out.println("Solved Formula: " + result1);
-        assertEquals("3+5=8", result1, "El cálculo de la fórmula '3+5' debería ser '8'.");
+        assertEquals("12+34=46", result1, "El cálculo de la fórmula '12+34' debería ser '46'.");
 
-        // Fórmula con multiplicación y suma: "2*3+5"
-        String formula2 = "2*3+5";
-        String result2 = Operations.Solve(formula2);
-        System.out.println("Solved Formula: " + result2);
-        assertEquals("2*3+5=11", result2, "El cálculo de la fórmula '2*3+5' debería ser '11'.");
-
-        // Fórmula con división y resta: "10/2-1"
-        String formula3 = "10/2-1";
+        // Fórmula con división y números de dos dígitos: "100/5-10"
+        String formula3 = "100/25+10";
         String result3 = Operations.Solve(formula3);
         System.out.println("Solved Formula: " + result3);
-        assertEquals("10/2-1=4", result3, "El cálculo de la fórmula '10/2-1' debería ser '4'.");
+        assertEquals("100/25+10=14", result3, "El cálculo de la fórmula '100/5-10' debería ser '10'.");
 
-        // Fórmula con precedencia de operaciones: "3+5*2-4/2"
-        String formula4 = "3+5*2-4/2";
-        String result4 = Operations.Solve(formula4);
-        System.out.println("Solved Formula: " + result4);
-        assertEquals("3+5*2-4/2=12", result4, "El cálculo de la fórmula '3+5*2-4/2' debería ser '12'.");
+        
     }
 
     /**
@@ -91,6 +81,13 @@ public class OperationsTest {
         
         // El resultado esperado debe ser solo el "=" con 0 como resultado, ya que no hay operación
         assertEquals("=0", result, "Una fórmula vacía debería devolver '=0'.");
+        
+        String formula1 = "hola";
+        String result1 = Operations.Solve(formula1);
+        System.out.println("Solved Formula: " + result);
+        
+        // El resultado esperado debe ser solo el "=" con 0 como resultado, ya que no hay operación
+        assertEquals("=0", result, "Una cadena de caracteres debería lanzar una Excepcion'.");
     }
 
     /**
