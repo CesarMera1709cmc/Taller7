@@ -99,4 +99,35 @@ public class OperationsTest {
     
         assertEquals("123=123", result, "Una fórmula con solo un número debería devolver el mismo número.");
     }
+    
+    /**
+     * Test de resultado diferente en Solve.
+     * Verifica que el resultado de dos fórmulas diferentes no sean iguales.
+     */
+    @Test
+    public void testSolveNotEquals() {
+        System.out.println("Solve Not Equals");
+
+        // Fórmulas diferentes
+        String formula1 = "5+3";
+        String formula2 = "7+1";
+        String result1 = Operations.Solve(formula1);
+        String result2 = Operations.Solve(formula2);
+        
+        assertNotEquals(result1, result2, "Los resultados de las fórmulas no deberían ser iguales.");
+    }
+    
+    /**
+     * Test de Solve con fórmula con división por cero.
+     * Verifica que se lance una excepción cuando hay división por cero.
+     */
+    @Test
+    public void testSolveWithDivisionByZero() {
+        System.out.println("Solve with Division by Zero");
+
+        // Fórmula con división por cero: "5/0"
+        String formula = "51/0";
+        assertThrows(ArithmeticException.class, () -> Operations.Solve(formula),
+                "Se esperaba una excepción ArithmeticException por división por cero.");
+    }
 }
