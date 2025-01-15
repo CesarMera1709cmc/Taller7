@@ -65,7 +65,6 @@ public class OperationsTest {
      * Verifica que se maneje correctamente una fórmula vacía y una cadena de caracteres.
      */
     @Test
-    public void testSolveWithEmptyFormula() {
     public void testSolveconOtraFormula() {
         System.out.println("Solve con una formula vacia");
 
