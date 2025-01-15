@@ -30,12 +30,8 @@ public class OperationsTest {
     @Test
     public void testMakeFormula() {
         System.out.println("MakeFormula");
-        
-        // Generamos una fórmula usando MakeFormula()
         String formula = Operations.MakeFormula();
         System.out.println("Generated Formula: " + formula);
-
-        // Verificar que la fórmula no esté vacía
         assertNotNull(formula, "La fórmula generada no debe ser null");
         assertFalse(formula.isEmpty(), "La fórmula generada no debe estar vacía");
 
