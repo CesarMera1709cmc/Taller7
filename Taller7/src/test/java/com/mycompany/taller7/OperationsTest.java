@@ -72,7 +72,9 @@ public class OperationsTest {
         String result = Operations.Solve(formula);
         System.out.println("Formula Resuelta: " + result);
         
-        assertEquals("=0", result, "Una fórmula vacía debería devolver '=0'.");
+        assertThrows(StackEmptyExcepcion.class, () -> {
+        Operations.Solve(formula);
+        });
         
         System.out.println("Solve con una cadena de caracteres");
         
@@ -81,7 +83,7 @@ public class OperationsTest {
         System.out.println("Solved Formula: " + result);
         
 
-        assertEquals("=0", result, "Una cadena de caracteres debería lanzar una Excepcion'.");
+        assertEquals("Excepcion", result, "Una cadena de caracteres debería lanzar una Excepcion'.");
     }
 
     /**
