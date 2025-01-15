@@ -31,16 +31,11 @@ public class OperationsTest {
     public void testMakeFormula() {
         System.out.println("MakeFormula");
         
-        // Generamos una fórmula usando MakeFormula()
         String formula = Operations.MakeFormula();
         System.out.println("Generated Formula: " + formula);
 
-        // Verificar que la fórmula no esté vacía
         assertNotNull(formula, "La fórmula generada no debe ser null");
         assertFalse(formula.isEmpty(), "La fórmula generada no debe estar vacía");
-
-        // Verificar que la fórmula contiene números y operadores
-        // La expresión regular valida que la fórmula contiene números seguidos de operadores
         assertTrue(formula.matches("^[0-9]+[\\+\\-\\*/][0-9]+([\\+\\-\\*/][0-9]+)*$"),
                 "La fórmula generada no tiene el formato esperado.");
     }
@@ -54,13 +49,12 @@ public class OperationsTest {
         System.out.println("Solve");
         String formula1 = "12+34";
         String result1 = Operations.Solve(formula1);
-        System.out.println("Solved Formula: " + result1);
+        System.out.println("Formula Resuelta: " + result1);
         assertEquals("12+34=46", result1, "El cálculo de la fórmula '12+34' debería ser '46'.");
 
-        // Fórmula con división y números de dos dígitos: "100/5-10"
         String formula3 = "100/25+10";
         String result3 = Operations.Solve(formula3);
-        System.out.println("Solved Formula: " + result3);
+        System.out.println("Formula Resuelta " + result3);
         assertEquals("100/25+10=14", result3, "El cálculo de la fórmula '100/5-10' debería ser '10'.");
 
         
@@ -68,25 +62,25 @@ public class OperationsTest {
 
     /**
      * Test de Solve con fórmula vacía.
-     * Verifica que se maneje correctamente una fórmula vacía.
+     * Verifica que se maneje correctamente una fórmula vacía y una cadena de caracteres.
      */
     @Test
     public void testSolveWithEmptyFormula() {
-        System.out.println("Solve with Empty Formula");
+        System.out.println("Solve con una formula vacia");
 
-        // Fórmula vacía
         String formula = "";
         String result = Operations.Solve(formula);
-        System.out.println("Solved Formula: " + result);
+        System.out.println("Formula Resuelta: " + result);
         
-        // El resultado esperado debe ser solo el "=" con 0 como resultado, ya que no hay operación
         assertEquals("=0", result, "Una fórmula vacía debería devolver '=0'.");
+        
+        System.out.println("Solve con una cadena de caracteres");
         
         String formula1 = "hola";
         String result1 = Operations.Solve(formula1);
         System.out.println("Solved Formula: " + result);
         
-        // El resultado esperado debe ser solo el "=" con 0 como resultado, ya que no hay operación
+
         assertEquals("=0", result, "Una cadena de caracteres debería lanzar una Excepcion'.");
     }
 
@@ -95,15 +89,13 @@ public class OperationsTest {
      * Verifica que una fórmula con un solo número se resuelva correctamente.
      */
     @Test
-    public void testSolveWithOnlyNumber() {
-        System.out.println("Solve with Only Number");
+    public void testSolveConUnSoloNumero() {
+        System.out.println("Solve con un solo numero");
 
-        // Fórmula con solo un número
         String formula = "123";
         String result = Operations.Solve(formula);
-        System.out.println("Solved Formula: " + result);
-        
-        // El resultado esperado debe ser solo el número seguido de '='
+        System.out.println("Formula Resuelta: " + result);
+    
         assertEquals("123=123", result, "Una fórmula con solo un número debería devolver el mismo número.");
     }
 }
