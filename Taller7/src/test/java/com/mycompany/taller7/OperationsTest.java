@@ -2,12 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package Taller7;
-
+package com.mycompany.taller7;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class OperationsTest {
@@ -30,8 +28,12 @@ public class OperationsTest {
     @Test
     public void testMakeFormula() {
         System.out.println("MakeFormula");
+        
+        // Generamos una fórmula usando MakeFormula()
         String formula = Operations.MakeFormula();
         System.out.println("Generated Formula: " + formula);
+
+        // Verificar que la fórmula no esté vacía
         assertNotNull(formula, "La fórmula generada no debe ser null");
         assertFalse(formula.isEmpty(), "La fórmula generada no debe estar vacía");
 
