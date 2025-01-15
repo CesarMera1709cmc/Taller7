@@ -66,6 +66,7 @@ public class OperationsTest {
      */
     @Test
     public void testSolveWithEmptyFormula() {
+    public void testSolveconOtraFormula() {
         System.out.println("Solve con una formula vacia");
 
         String formula = "";
